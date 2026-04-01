@@ -16,17 +16,20 @@ const Register = () => {
             return;
         }
 
+        const normalizedEmail = email.trim().toLowerCase();
+
         localStorage.setItem(
-            'greenleafUser',
+            'greenleafRegisteredUser',
             JSON.stringify({
-                name,
-                email,
+                name: name.trim(),
+                email: normalizedEmail,
+                password,
                 registeredAt: new Date().toISOString(),
             })
         );
 
-        toast.success('Registration successful');
-        navigate('/');
+        toast.success('Registration successful. Please login now.');
+        navigate('/login');
     };
 
     return (

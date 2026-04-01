@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "../components";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [hasRegisteredAccount, setHasRegisteredAccount] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const navigate = useNavigate();
+
+  const getRegisteredUser = () => {
+    try {
+      return JSON.parse(localStorage.getItem("greenleafRegisteredUser") || "null");
+    } catch (error) {
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    const registeredUser = getRegisteredUser();
+    const accountExists = Boolean(
+      registeredUser &&
+        registeredUser.email &&
+        registeredUser.password
+    );
+
+    setHasRegisteredAccount(accountExists);
+    setIsLogin(accountExists);
+  }, []);
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -17,11 +38,28 @@ const Login = () => {
       return;
     }
 
+    const registeredUser = getRegisteredUser();
+
+    if (!registeredUser || !registeredUser.email || !registeredUser.password) {
+      toast.error("Please register first");
+      setIsLogin(false);
+      return;
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+    const isEmailMatch = registeredUser.email === normalizedEmail;
+    const isPasswordMatch = registeredUser.password === password;
+
+    if (!isEmailMatch || !isPasswordMatch) {
+      toast.error("Invalid email or password");
+      return;
+    }
+
     localStorage.setItem(
       "greenleafUser",
       JSON.stringify({
-        email,
-        name: email.split("@")[0],
+        email: registeredUser.email,
+        name: registeredUser.name,
         loginAt: new Date().toISOString(),
       })
     );
@@ -37,20 +75,30 @@ const Login = () => {
       return;
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+
     localStorage.setItem(
-      "greenleafUser",
+      "greenleafRegisteredUser",
       JSON.stringify({
-        name,
-        email,
+        name: name.trim(),
+        email: normalizedEmail,
+        password,
         registeredAt: new Date().toISOString(),
       })
     );
 
-    toast.success("Registration successful");
-    navigate("/");
+    setHasRegisteredAccount(true);
+    setIsLogin(true);
+    setPassword("");
+    toast.success("Registration successful. Please login now.");
   };
 
   const handleSwitchTab = (isLoginTab) => {
+    if (isLoginTab && !hasRegisteredAccount) {
+      toast.error("Register first to enable login");
+      return;
+    }
+
     setIsLogin(isLoginTab);
     setEmail("");
     setPassword("");
@@ -75,20 +123,22 @@ const Login = () => {
             }}>
               <button
                 onClick={() => handleSwitchTab(true)}
+                disabled={!hasRegisteredAccount}
                 style={{
                   flex: 1,
                   border: 'none',
-                  background: isLogin ? 'var(--secondary-green)' : 'transparent',
-                  color: isLogin ? 'white' : 'var(--primary-green)',
+                  background: isLogin && hasRegisteredAccount ? 'var(--secondary-green)' : 'transparent',
+                  color: isLogin && hasRegisteredAccount ? 'white' : 'var(--primary-green)',
                   padding: '12px 20px',
                   borderRadius: '8px',
                   fontWeight: '600',
-                  cursor: 'pointer',
+                  cursor: hasRegisteredAccount ? 'pointer' : 'not-allowed',
+                  opacity: hasRegisteredAccount ? 1 : 0.6,
                   transition: 'all 0.3s ease',
                   fontSize: '1rem'
                 }}
-                onMouseEnter={(e) => !isLogin && (e.target.style.background = '#e8f5e9')}
-                onMouseLeave={(e) => !isLogin && (e.target.style.background = 'transparent')}
+                onMouseEnter={(e) => hasRegisteredAccount && !isLogin && (e.target.style.background = '#e8f5e9')}
+                onMouseLeave={(e) => hasRegisteredAccount && !isLogin && (e.target.style.background = 'transparent')}
               >
                 <i className="fa fa-sign-in me-2"></i>Login
               </button>
@@ -112,6 +162,11 @@ const Login = () => {
                 <i className="fa fa-user-plus me-2"></i>Register
               </button>
             </div>
+            {!hasRegisteredAccount && (
+              <p className="text-center text-muted mt-n3 mb-4">
+                Please register first. Login will unlock after registration.
+              </p>
+            )}
 
             {/* Login Form */}
             {isLogin && (
