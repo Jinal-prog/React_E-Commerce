@@ -34,7 +34,7 @@ const AboutPage = () => {
           <div className="col-md-3 col-sm-6">
             <div className="card card-custom h-100" style={{display: 'flex', flexDirection: 'column'}}>
               <div style={{height: '250px', overflow: 'hidden', backgroundColor: '#f0f7ed', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img className="img-fluid" src="/assets/images/MoneyPlant.png" alt="Indoor Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
+                <img className="img-fluid" src="/assets/images/moneyplant.png" alt="Indoor Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
               </div>
               <div className="card-body text-center" style={{flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <h5 className="card-title" style={{color: 'var(--primary-green)', marginBottom: '1rem', fontWeight: 'bold'}}>Indoor Plants</h5>
@@ -45,7 +45,7 @@ const AboutPage = () => {
           <div className="col-md-3 col-sm-6">
             <div className="card card-custom h-100" style={{display: 'flex', flexDirection: 'column'}}>
               <div style={{height: '250px', overflow: 'hidden', backgroundColor: '#f0f7ed', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img className="img-fluid" src="/assets/images/Mangoplant.png" alt="Fruit Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
+                <img className="img-fluid" src="/assets/images/mangoplant.png" alt="Fruit Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
               </div>
               <div className="card-body text-center" style={{flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <h5 className="card-title" style={{color: 'var(--primary-green)', marginBottom: '1rem', fontWeight: 'bold'}}>Fruit Plants</h5>
@@ -56,7 +56,7 @@ const AboutPage = () => {
           <div className="col-md-3 col-sm-6">
             <div className="card card-custom h-100" style={{display: 'flex', flexDirection: 'column'}}>
               <div style={{height: '250px', overflow: 'hidden', backgroundColor: '#f0f7ed', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <img className="img-fluid" src="/assets/images/Mintplant.png" alt="Medicinal Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
+                <img className="img-fluid" src="/assets/images/MintPlant.png" alt="Medicinal Plants" style={{width: '100%', height: '100%', objectFit: 'contain', padding: '10px'}} />
               </div>
               <div className="card-body text-center" style={{flex: '1', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                 <h5 className="card-title" style={{color: 'var(--primary-green)', marginBottom: '1rem', fontWeight: 'bold'}}>Medicinal Plants</h5>

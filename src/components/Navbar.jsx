@@ -17,7 +17,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-custom py-2 sticky-top">
             <div className="container">
                 <NavLink className="navbar-brand fw-bold px-2 d-flex align-items-center" to="/">
-                    <img src="/assets/images/logo.png" alt="Logo" width="100" height="100" className="me-2" />
+                    <img src="/assets/images/Logo.png" alt="Logo" width="100" height="100" className="me-2" />
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

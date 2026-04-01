@@ -15,7 +15,7 @@ const Footer = () => {
                 We bring nature closer to you with a wide variety of flowering, indoor, 
                 fruit, and medicinal plants.
               </p>
-              <img src="/assets/images/logo.png" alt="Logo" width="80" height="80" className="mt-2" />
+              <img src="/assets/images/Logo.png" alt="Logo" width="80" height="80" className="mt-2" />
             </div>
 
             {/* Quick Links Section */}

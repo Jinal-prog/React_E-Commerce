@@ -36,7 +36,7 @@ const Home = () => {
       id: 12,
       title: "Mango Plant - Fruit Tree",
       price: 499,
-      images: ["/assets/images/Mangoplant.png", "/assets/images/Mangoplant1.png"],
+      images: ["/assets/images/mangoplant.png", "/assets/images/mangoplant1.png"],
       category: "Fruit Plants",
       description: "Fresh mango fruit tree for your garden",
       details: "Grow your own delicious mangoes with this healthy fruit tree. Perfect for tropical gardens."
@@ -45,7 +45,7 @@ const Home = () => {
       id: 20,
       title: "Mint Plant - Fresh Herb",
       price: 129,
-      images: ["/assets/images/Mintplant.png", "/assets/images/Mintplant1.png", "/assets/images/Mintplant2.png"],
+      images: ["/assets/images/MintPlant.png", "/assets/images/MintPlant1.png", "/assets/images/MintPlant2.png"],
       category: "Medicinal Plants",
       description: "Fresh mint plant with small flowers",
       details: "Aromatic mint plant perfect for teas, cooking, and medicinal purposes. Easy to grow at home."
@@ -63,7 +63,7 @@ const Home = () => {
       id: 11,
       title: "Money Plant - Green Vine",
       price: 179,
-      images: ["/assets/images/MoneyPlant.png", "/assets/images/MoneyPlant.png"],
+      images: ["/assets/images/moneyplant.png", "/assets/images/moneyplant.png"],
       category: "Indoor Plants",
       description: "Lucky money plant creeper for decoration",
       details: "Easy-to-grow money plant that brings luck and prosperity. Perfect for offices and homes."
@@ -74,7 +74,7 @@ const Home = () => {
   const environmentData = [
     {
       title: "Indoor Plants",
-      image: "/assets/images/MoneyPlant.png",
+      image: "/assets/images/moneyplant.png",
       description: "Perfect for home offices and living spaces",
       color: "#e8f5e9"
     },
@@ -86,13 +86,13 @@ const Home = () => {
     },
     {
       title: "Medicinal Plants",
-      image: "/assets/images/Mintplant.png",
+      image: "/assets/images/MintPlant.png",
       description: "Health and wellness from nature",
       color: "#fff3e0"
     },
     {
       title: "Fruit Plants",
-      image: "/assets/images/Mangoplant.png",
+      image: "/assets/images/mangoplant.png",
       description: "Fresh fruits from your own garden",
       color: "#f3e5f5"
     }
@@ -105,17 +105,17 @@ const Home = () => {
       details: "Hand-selected healthy blooms directly from our nursery rows every morning."
     },
     {
-      image: "/assets/images/MoneyPlant1.png",
+      image: "/assets/images/moneyplant1.png",
       title: "Indoor Care Ready",
       details: "Each indoor plant is checked for root strength, leaf quality, and easy home care."
     },
     {
-      image: "/assets/images/Mangoplant1.png",
+      image: "/assets/images/mangoplant1.png",
       title: "Fruit Plant Nursery Zone",
       details: "Fruit saplings are nurtured in nutrient-rich beds for stronger growth and yield."
     },
     {
-      image: "/assets/images/Mintplant1.png",
+      image: "/assets/images/MintPlant1.png",
       title: "Medicinal Herb Section",
       details: "Our herb section focuses on aroma, freshness, and naturally disease-free growth."
     },
